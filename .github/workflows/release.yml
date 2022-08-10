@@ -30,7 +30,7 @@ jobs:
         CI: ""
     - name: Package results
       run: |
-        zip -r paciak-rajd build/*
+        (cd build && zip -r - *) > paciak-rajd-${{ github.ref }}.zip
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
