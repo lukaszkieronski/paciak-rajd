@@ -28,8 +28,6 @@ jobs:
         cache: 'npm'
     - name: clean cache
       run: npm cache clean --force
-    - name: ci
-      run: npm ci
     - name: install
       run: npm install
     - name: build
