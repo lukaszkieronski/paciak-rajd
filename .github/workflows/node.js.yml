@@ -33,7 +33,7 @@ jobs:
       env:
         CI: ""
     - name: artifacts
-      uses: actions/upload-artifacts@v3
+      uses: actions/upload-artifact@v3
       with:
         name:
           build
