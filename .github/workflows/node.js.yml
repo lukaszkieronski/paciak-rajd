@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x, 14.x, 16.x]
+        node-version: [16.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -28,8 +28,10 @@ jobs:
         cache: 'npm'
     - name: clean cache
       run: npm cache clean --force
-    - name: install
-      run: npm install
+    - name: ci
+      run: npm ci --legacy-peer-deps
+    - name: install 
+      run: npm install --legacy-peer-deps
     - name: build
       run: npm run build
     # - run: npm test
