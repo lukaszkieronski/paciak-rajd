@@ -17,6 +17,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        ref: 'master'
     - name: Setup node environment
       uses: actions/setup-node@v3
       with:
@@ -48,6 +50,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
-        asset_path: ./paciak-rajd.zip
-        asset_name: paciak-rajd.zip
+        asset_path: ./paciak-rajd-${{ github.ref }}.zip
+        asset_name: paciak-rajd-${{ github.ref }}.zip
         asset_content_type: application/zip
