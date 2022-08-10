@@ -30,7 +30,7 @@ jobs:
         CI: ""
     - name: Package results
       run: |
-        zip --junk-paths paciak-rajd build/*
+        zip -r paciak-rajd build/*
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
