@@ -26,12 +26,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: clean cache
-      run: npm cache clean --force
     - name: ci
       run: npm ci --legacy-peer-deps
-    - name: install 
-      run: npm install --legacy-peer-deps
     - name: build
       run: npm run build
+      env:
+        CI: ""
     # - run: npm test
