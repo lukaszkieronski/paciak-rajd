@@ -1,10 +1,11 @@
 export const MapLocations = {
     Rueda: { id: 0, lat: 50.39674, lon: 18.13082, name: 'Baza' },
-    Berlin: { id: 1, lat: 52.520007, lon: 13.404954, name: 'Berlin' },
-    London: { id: 2, lat: 51.507351, lon: -0.127758, name: 'London' }
+    Most: { id: 1, lat: 50.35332718710811, lon: 18.241189812343627, name: 'Most' },
+    Obwodnica: { id: 2, lat: 50.34996832560467, lon: 18.226200696815997, name: 'Obwodnica' },
+    Castorama: { id: 3, lat: 50.34156423140966, lon: 18.192491998623172, name: 'Castorama' }
 }
 
 
 export const LocationList = [
-    MapLocations.Berlin, MapLocations.London
+    MapLocations.Most, MapLocations.Obwodnica, MapLocations.Castorama
 ]
