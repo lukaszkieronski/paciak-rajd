@@ -20,6 +20,7 @@ export const RegisterRider = ({ rider }) => {
             <Typography variant="h5" component="div">Zeskanuj dane kierowcy</Typography>
             <Button onClick={() => { rider.set({ id: 1, name: "Kiel" }) }}>Fake scan</Button>
             <QrReader
+                constraints={{ facingMode: 'environment' }}
                 onResult={(result, error) => {
                     if (!!result) {
                         validate(result?.text);
