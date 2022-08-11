@@ -1,24 +1,10 @@
-import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { MainView } from './MainView'
 import { RegisterRider } from './RegisterRider';
+import theme from './Theme';
 
-
-const theme = createTheme({
-  palette: {
-    type: 'light',
-    primary: {
-      main: '#3f51b5',
-    },
-    secondary: {
-      main: '#f50057',
-    },
-    background: {
-      default: '#cfd8dc',
-    },
-  }
-})
 
 export const App = () => {
 
