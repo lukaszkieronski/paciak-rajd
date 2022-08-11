@@ -13,6 +13,11 @@ export const Info = ({ rider }) => {
         navigate('/', { replace: true })
     }
 
+    const clearAllData = () => {
+        localStorage.clear()
+        window.location.reload()
+    }
+
     return (
         <Grid container spacing={2} sx={{ p: 2 }}>
             <Grid item xs={16}>
@@ -27,7 +32,8 @@ export const Info = ({ rider }) => {
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small" onClick={clearRiderData}>Usuń</Button>
+                        <Button size="small" onClick={clearRiderData}>Usuń kierowcę</Button>
+                        <Button size="small" onClick={clearAllData}>Usuń wszystkie dane</Button>
                     </CardActions>
                 </Card>
             </Grid>

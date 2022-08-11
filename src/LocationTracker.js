@@ -1,9 +1,18 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { LocationList } from './MapLocations'
+import { latLng } from 'leaflet'
 
-export const LocationTracker = (props) => {
+export const LocationTracker = ({ location, visited, setVisited }) => {
     useEffect(() => {
-        console.log(props)
-    }, [props])
+        const current = latLng(location)
+        for (const location of LocationList) {
+            if (location.id in visited) continue
+            const distance = current.distanceTo(location)
+            if (distance < 50) {
+                setVisited({ ...visited, [location.id]: Date.now() })
+            }
+        }
+    }, [location, visited, setVisited])
 
     return <div></div>
 }

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Grid, Box } from '@mui/material'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationBar } from './NavigationBar.js'
@@ -9,20 +9,33 @@ import { LocationTracker } from './LocationTracker'
 
 export const AppCore = ({ rider }) => {
     const [location, setLocation] = useState(MapLocations.Rueda)
-    const [visited, setVisited] = useState([])
+    const [visited, setVisited] = useState(() => {
+        let visited = localStorage.getItem('visited')
+        try {
+            if (!visited) return {}
+            return JSON.parse(visited)
+        } catch (error) {
+            return {}
+        }
+    })
+
+    useEffect(() => {
+        localStorage.setItem('visited', JSON.stringify(visited))
+    }, [visited])
 
     const elementProps = useMemo(() => {
         return {
             location,
-            rider
+            rider,
+            visited
         }
-    }, [location, rider])
+    }, [location, rider, visited])
 
 
     return (
         <React.Fragment>
             <Geolocation update={setLocation} />
-            <LocationTracker />
+            <LocationTracker location={location} visited={visited} setVisited={setVisited} />
             <Grid
                 container
                 direction="column"

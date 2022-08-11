@@ -11,6 +11,7 @@ export const App = () => {
   const [rider, setRider] = useState(() => {
     let rider = localStorage.getItem('rider')
     try {
+      if (!rider) return undefined
       return JSON.parse(rider)
     } catch (error) {
       return undefined

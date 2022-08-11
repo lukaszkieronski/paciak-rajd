@@ -1,5 +1,7 @@
 import MHomeIcon from '@mui/icons-material/Home';
 import MSportsMotorsportsIcon from '@mui/icons-material/SportsMotorsports';
+import MStarIcon from '@mui/icons-material/Star'
+
 import { divIcon } from 'leaflet'
 import { pink } from '@mui/material/colors'
 import { renderToString } from 'react-dom/server'
@@ -9,6 +11,13 @@ export const HomeIcon = divIcon({
     className: '',
     iconSize: [50, 50],
 })
+
+export const StarIcon = divIcon({
+    html: renderToString(<MStarIcon color="primary" style={{ fill: pink[400] }} />),
+    className: '',
+    iconSize: [50, 50],
+})
+
 
 export const CurrentPositionIcon = divIcon({
     html: renderToString(<MSportsMotorsportsIcon color="primary" style={{ fill: pink[400] }} />),
