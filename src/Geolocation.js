@@ -8,7 +8,7 @@ export const Geolocation = ({ update }) => {
             update(latlng)
         }, (error) => {
             alert(error.message)
-        })
+        }, { enableHighAccuracy: true })
 
         return () => {
             navigator.geolocation.clearWatch(watchId)

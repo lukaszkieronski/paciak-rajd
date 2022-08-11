@@ -1,8 +1,10 @@
 import { Card, CardContent, Grid, Typography } from '@mui/material'
 import React, { useMemo } from 'react'
 import { LocationList } from './MapLocations'
+import { latLng } from 'leaflet'
 
-export const Places = ({ visited }) => {
+
+export const Places = ({ visited, location }) => {
 
     let pendingList = useMemo(() => {
         return LocationList.filter((place) => { return !(place.id in visited) })
@@ -11,6 +13,11 @@ export const Places = ({ visited }) => {
     let visitedList = useMemo(() => {
         return LocationList.filter((place) => { return place.id in visited })
     }, [visited])
+
+    const calculateDistanceTo = (place) => {
+        const current = latLng(location)
+        return (current.distanceTo(place) / 1000).toFixed(2)
+    }
 
     return (
         <Grid container spacing={2} sx={{ p: 2 }}>
@@ -21,7 +28,7 @@ export const Places = ({ visited }) => {
                         {
                             pendingList.map((location) =>
                                 <Typography key={location.id}>
-                                    {location.id} {location.name}
+                                    {location.id} {location.name} {calculateDistanceTo(location)} km
                                 </Typography>
                             )
                         }

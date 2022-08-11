@@ -7,5 +7,7 @@ export const MapLocations = {
 
 
 export const LocationList = [
-    MapLocations.Most, MapLocations.Obwodnica, MapLocations.Castorama
+    MapLocations.Most,
+    MapLocations.Obwodnica,
+    MapLocations.Castorama
 ]
