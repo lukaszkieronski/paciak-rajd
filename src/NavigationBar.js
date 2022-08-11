@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-import { NavigationItems, DefaultLocation } from './NavigationItems';
+import { NavigationItems } from './NavigationItems';
 
 export const NavigationBar = () => {
-    const [value, setValue] = useState(DefaultLocation)
+
+    const location = useLocation()
+    const [value, setValue] = useState(location.pathname)
+
     return (
         <BottomNavigation
             showLabels
@@ -18,7 +21,7 @@ export const NavigationBar = () => {
                 NavigationItems.map((item, index) =>
                     <BottomNavigationAction
                         component={Link}
-                        to={`/${item.loc}`}
+                        to={item.loc}
                         value={item.loc}
                         label={item.label}
                         icon={item.icon}

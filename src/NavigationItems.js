@@ -12,28 +12,28 @@ import { Info } from './Info'
 
 export const NavigationItems = [
     {
-        loc: 'map',
+        loc: '/map',
         label: 'Map',
         icon: <MapIcon />,
-        element: <Map />
+        element: Map
     },
     {
-        loc: 'places',
+        loc: '/places',
         label: 'Places',
         icon: <PlaceIcon />,
-        element: <Places />
+        element: Places
     },
     {
-        loc: 'questions',
+        loc: '/questions',
         label: 'Questions',
         icon: <QuestionAnswerIcon />,
-        element: <Questions />
+        element: Questions
     },
     {
-        loc: 'info',
+        loc: '/info',
         label: 'Info',
         icon: <InfoIcon />,
-        element: <Info />
+        element: Info
 
     }
 ]
