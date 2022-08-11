@@ -1,8 +1,24 @@
-import { CssBaseline } from '@mui/material';
+import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 
 import { MainView } from './MainView'
 import { RegisterRider } from './RegisterRider';
+
+
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+    background: {
+      default: '#cfd8dc',
+    },
+  }
+})
 
 export const App = () => {
 
@@ -32,8 +48,10 @@ export const App = () => {
 
   return (
     <React.Fragment>
-      <CssBaseline />
-      {rider ? <MainView rider={riderObj} /> : <RegisterRider rider={riderObj} />}
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        {rider ? <MainView rider={riderObj} /> : <RegisterRider rider={riderObj} />}
+      </ThemeProvider>
     </React.Fragment>
   )
 }
