@@ -1,7 +1,7 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import React, { useEffect, useMemo, useState } from 'react';
 
-import { MainView } from './MainView'
+import { AppCore } from './AppCore'
 import { RegisterRider } from './RegisterRider';
 import theme from './Theme';
 
@@ -36,7 +36,7 @@ export const App = () => {
     <React.Fragment>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        {rider ? <MainView rider={riderObj} /> : <RegisterRider rider={riderObj} />}
+        {rider ? <AppCore rider={riderObj} /> : <RegisterRider rider={riderObj} />}
       </ThemeProvider>
     </React.Fragment>
   )
