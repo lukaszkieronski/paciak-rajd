@@ -1,12 +1,16 @@
-import { Button, CardActions, CardContent, Grid, Typography } from '@mui/material';
-import { Card } from '@mui/material';
 import React from 'react';
 import packageJson from '../package.json'
+import { useNavigate } from 'react-router-dom';
+import { Button, CardActions, CardContent, Grid, Typography } from '@mui/material';
+import { Card } from '@mui/material';
 
 
 export const Info = ({ rider }) => {
+    const navigate = useNavigate()
+
     const clearRiderData = () => {
         rider.set(undefined)
+        navigate('/', { replace: true })
     }
 
     return (

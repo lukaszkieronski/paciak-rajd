@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BottomNavigation, BottomNavigationAction } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom';
 
@@ -7,14 +7,18 @@ import { NavigationItems } from './NavigationItems';
 export const NavigationBar = () => {
 
     const location = useLocation()
-    const [value, setValue] = useState(location.pathname)
+    const [selected, setSelected] = useState(location.pathname)
+
+    useEffect(() => {
+        if (selected !== location.pathname) setSelected(location.pathname)
+    }, [location, selected])
 
     return (
         <BottomNavigation
             showLabels
-            value={value}
+            value={selected}
             onChange={(event, newValue) => {
-                setValue(newValue);
+                setSelected(newValue);
             }}
         >
             {

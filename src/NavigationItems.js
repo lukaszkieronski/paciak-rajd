@@ -1,9 +1,7 @@
-import {
-    QuestionAnswer as QuestionAnswerIcon,
-    Place as PlaceIcon,
-    Map as MapIcon,
-    Info as InfoIcon
-} from '@mui/icons-material'
+import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer'
+import PlaceIcon from '@mui/icons-material/Place'
+import MapIcon from '@mui/icons-material/Map'
+import InfoIcon from '@mui/icons-material/Info'
 
 import { Map } from './Map'
 import { Places } from './Places'
@@ -38,4 +36,4 @@ export const NavigationItems = [
     }
 ]
 
-export const DefaultLocation = NavigationItems.find(() => true).loc
+export const DefaultNavigation = NavigationItems.find(() => true).loc

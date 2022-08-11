@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Grid, Box } from '@mui/material'
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { NavigationBar } from './NavigationBar.js'
-import { NavigationItems, DefaultLocation } from './NavigationItems'
+import { NavigationItems, DefaultNavigation } from './NavigationItems'
 import { Geolocation } from './Geolocation'
 import { MapLocations } from './MapLocations'
 
@@ -40,7 +40,7 @@ export const MainView = ({ rider }) => {
                             <Route path={item.loc} element={React.createElement(item.element, { ...elementProps })} key={index} location={location} />
                         )
                     }
-                    <Route path='*' element={<Navigate to={DefaultLocation} />} />
+                    <Route path='*' element={<Navigate to={DefaultNavigation} />} />
                 </Routes>
             </Box>
         </Grid>
