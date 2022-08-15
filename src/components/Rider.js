@@ -32,32 +32,8 @@ export const Rider = ({ rider, setRider }) => {
     );
   };
 
-  // return (
-  //   <Container sx={{ pb: 7 }}>
-  //     <Grid container spacing={2} sx={{ p: 2 }}>
-  //       <Grid item sm={12}>
-  //         <QrScanner setResult={setScanResult} />
-  //       </Grid>
-  //       {[...Array(50).keys()].map((i) => (
-  //         <Grid key={i} item sm={6}>
-  //           <Paper>{scanResult}</Paper>
-  //         </Grid>
-  //       ))}
-  //     </Grid>
-  //     <BottomNavigation
-  //       showLabels
-  //       sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}
-  //     >
-  //       <BottomNavigationAction label="1" />
-  //       <BottomNavigationAction label="2" />
-  //       <BottomNavigationAction label="3" />
-  //       <BottomNavigationAction label="4" />
-  //     </BottomNavigation>
-  //   </Container>
-  // );
-
   return (
-    <Box sx={{ height: "100vh", pb: 7 }}>
+    <Box sx={{ height: "100vh", pt: 7 }}>
       <Geolocation setLocation={setLocation} />
       <LocationTracker
         location={location}
@@ -70,7 +46,7 @@ export const Rider = ({ rider, setRider }) => {
           <Route path="*" element={<Navigate to={defaultNavigation} />} />
         </Routes>
       </Box>
-      <Box sx={{ position: "fixed", bottom: 0, left: 0, right: 0 }}>
+      <Box sx={{ position: "fixed", top: 0, left: 0, right: 0 }}>
         <Navigation />
       </Box>
     </Box>
