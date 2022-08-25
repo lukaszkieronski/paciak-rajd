@@ -3,14 +3,18 @@ import packageJson from "../../package.json";
 import { useNavigate } from "react-router-dom";
 import {
   Button,
+  Card,
+  CardHeader,
   CardActions,
   CardContent,
   Grid,
   Typography,
+  FormGroup,
+  FormControlLabel,
+  Switch
 } from "@mui/material";
-import { Card } from "@mui/material";
 
-export const Info = ({ rider, setRider }) => {
+export const Info = ({ rider, setRider, settings, setSettings }) => {
   const navigate = useNavigate();
 
   const clearRiderData = () => {
@@ -27,8 +31,8 @@ export const Info = ({ rider, setRider }) => {
     <Grid container spacing={2} sx={{ p: 2 }}>
       <Grid item xs={16}>
         <Card>
+          <CardHeader title="Kierowca" />
           <CardContent>
-            <Typography variant="h5">Kierowca</Typography>
             <Typography>Numer: {rider.id}</Typography>
             <Typography>Ksywka: {rider.name}</Typography>
           </CardContent>
@@ -44,11 +48,17 @@ export const Info = ({ rider, setRider }) => {
       </Grid>
       <Grid item xs={16}>
         <Card>
+          <CardHeader title="Ustawienia" subheader={`v${packageJson.version}`} />
           <CardContent>
-            <Typography>Wersja: {packageJson.version}</Typography>
+            <FormGroup>
+              <FormControlLabel
+                control={<Switch checked={settings.useGoogleMapsOnIos} onChange={(e, c) => setSettings({ ...settings, useGoogleMapsOnIos: c })} />}
+                label="Używaj GoogleMaps na IOS" />
+            </FormGroup>
           </CardContent>
         </Card>
       </Grid>
+
     </Grid>
   );
 };

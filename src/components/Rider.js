@@ -14,11 +14,20 @@ export const Rider = ({ rider, setRider }) => {
     true,
     defaultLocation
   );
+
+  const [settings, setSettings] = useLocalStorage(
+    "settings",
+    true,
+    {
+      useGoogleMapsOnIos: false
+    }
+  )
+
   const [visited, setVisited] = useLocalStorage("visited", true, []);
 
   const elementProps = useMemo(() => {
-    return { rider, setRider, location, visited };
-  }, [rider, setRider, location, visited]);
+    return { rider, setRider, location, visited, settings, setSettings };
+  }, [rider, setRider, location, visited, settings, setSettings]);
 
   const generateRoutes = (item, index) => {
     const element = React.createElement(item.element, elementProps);
