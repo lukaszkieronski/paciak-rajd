@@ -24,8 +24,12 @@ export const Info = ({ rider, setRider, settings, setSettings }) => {
 
   const clearAllData = () => {
     localStorage.clear();
-    navigate("/", { replace: true });
+    window.location.reload(false)
   };
+
+  const reloadApp = () => {
+    window.location.reload(true)
+  }
 
   return (
     <Grid container spacing={2} sx={{ p: 2 }}>
@@ -56,10 +60,16 @@ export const Info = ({ rider, setRider, settings, setSettings }) => {
                 label="Używaj GoogleMaps na IOS" />
             </FormGroup>
           </CardContent>
+          <CardActions>
+            <Button size="small" onClick={reloadApp}>
+              Wczytaj ponownie
+            </Button>
+          </CardActions>
+
         </Card>
       </Grid>
 
-    </Grid>
+    </Grid >
   );
 };
 

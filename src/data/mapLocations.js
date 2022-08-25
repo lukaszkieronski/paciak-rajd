@@ -22,6 +22,11 @@ export const mapLocations = {
     id: 4,
     lat: 50.35660321799301, lon: 18.269518060190425,
     name: "Osiedle"
+  },
+  Katerowo: {
+    id: 5,
+    lat: 50.192895728263416, lon: 19.174578123699447,
+    name: "Katerowo"
   }
 };
 
