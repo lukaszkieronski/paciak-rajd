@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { locationList } from "data/mapLocations";
 import { latLng } from "leaflet";
+import { defaults } from "defaults";
 
 export const LocationTracker = ({ location, visited, setVisited }) => {
   useEffect(() => {
@@ -8,7 +9,7 @@ export const LocationTracker = ({ location, visited, setVisited }) => {
     for (const location of locationList) {
       if (location.id in visited) continue;
       const distance = current.distanceTo(location);
-      if (distance < 50) {
+      if (distance < defaults.locationCircleRadius) {
         setVisited({ ...visited, [location.id]: Date.now() });
       }
     }

@@ -18,6 +18,11 @@ export const mapLocations = {
     lon: 18.192491998623172,
     name: "Castorama",
   },
+  Osiedle: {
+    id: 4,
+    lat: 50.35660321799301, lon: 18.269518060190425,
+    name: "Osiedle"
+  }
 };
 
 export const defaultLocation = mapLocations.Rueda;

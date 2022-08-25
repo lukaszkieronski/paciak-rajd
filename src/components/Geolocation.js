@@ -1,17 +1,19 @@
 import { useEffect } from "react";
+import { latLng } from "leaflet"
 
-export const Geolocation = ({ setLocation }) => {
+export const Geolocation = ({ location, setLocation }) => {
+  const locationUpdateDistance = 2
+
   useEffect(() => {
     const watchId = navigator.geolocation.watchPosition(
       (position) => {
-        const latlng = {
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        };
-        setLocation(latlng);
+        const current = latLng(position.coords.latitude, position.coords.longitude)
+        if (current && current.distanceTo(location) > locationUpdateDistance) {
+          setLocation(current);
+        }
       },
       (error) => {
-        alert(error.message);
+        console.error(error)
       },
       { enableHighAccuracy: true }
     );
@@ -19,7 +21,7 @@ export const Geolocation = ({ setLocation }) => {
     return () => {
       navigator.geolocation.clearWatch(watchId);
     };
-  }, [setLocation]);
+  }, [setLocation, location]);
 
   return false;
 };

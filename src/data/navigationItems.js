@@ -11,25 +11,25 @@ import { Info } from "components/Info";
 export const navigationItems = [
   {
     loc: "/map",
-    label: "Map",
+    label: "Mapa",
     icon: <MapIcon />,
     element: Map,
   },
   {
     loc: "/places",
-    label: "Places",
+    label: "Miejsca",
     icon: <PlaceIcon />,
     element: Places,
   },
   {
     loc: "/questions",
-    label: "Questions",
+    label: "Pytania",
     icon: <QuestionAnswerIcon />,
     element: Questions,
   },
   {
     loc: "/info",
-    label: "Info",
+    label: "Informacje",
     icon: <InfoIcon />,
     element: Info,
   },

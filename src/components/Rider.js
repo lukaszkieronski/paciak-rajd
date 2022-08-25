@@ -43,7 +43,7 @@ export const Rider = ({ rider, setRider }) => {
 
   return (
     <Box sx={{ height: "100vh", pt: 7 }}>
-      <Geolocation setLocation={setLocation} />
+      <Geolocation location={location} setLocation={setLocation} />
       <LocationTracker
         location={location}
         visited={visited}
