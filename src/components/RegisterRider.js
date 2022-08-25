@@ -2,18 +2,22 @@ import { Button, Container, Grid, Typography } from "@mui/material";
 import { QrScanner } from "./QrScanner";
 
 const Row = (props) => (
-  <Grid container item xs={12} justifyContent="center">
+  <Grid container item xs={12} justifyContent="center" alignContent="space-evenly">
     {props.children}
   </Grid>
 );
 
 export const RegisterRider = ({ setRider }) => {
-  const handleClick = () => {
+  const handleFake = () => {
     setRider({
       id: 123,
       name: "Kiel",
     });
   };
+
+  const handleReload = () => {
+    window.location.reload(false)
+  }
 
   return (
     <Container>
@@ -22,7 +26,8 @@ export const RegisterRider = ({ setRider }) => {
           <Typography variant="h5">Zeskanuj dane kierowcy</Typography>
         </Row>
         <Row>
-          <Button onClick={handleClick}>Fake scan</Button>
+          <Button onClick={handleFake}>Fake scan</Button>
+          <Button onClick={handleReload}>Odśwież</Button>
         </Row>
         <Row>
           <Grid item xs={12}>
