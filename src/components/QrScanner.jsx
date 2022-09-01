@@ -34,6 +34,14 @@ export const QrScanner = ({ setResult }) => {
         .start(cameraConfig, scanConfig, validateScan)
 
     }
+
+    return () => {
+      if (scanner.current.isScanning) {
+        scanner.current.stop().then(() => {
+          scanner.current.clear()
+        })
+      }
+    }
   }, [element_id, validateScan]);
   return <div id={element_id} ></div>;
 };

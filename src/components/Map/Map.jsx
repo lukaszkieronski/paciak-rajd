@@ -7,7 +7,7 @@ import { HomeIcon, CurrentPositionIcon } from "./MarkerIcons";
 import { Fab } from "@mui/material";
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import GpsNotFixedIcon from '@mui/icons-material/GpsNotFixed';
-import { defaults } from "defaults";
+import { defaults } from "data/defaults";
 
 export const Map = ({ location, visited }) => {
   const _map = useRef();

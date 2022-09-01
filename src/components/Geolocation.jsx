@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { latLng } from "leaflet"
+import { defaults } from 'data/defaults'
 
 export const Geolocation = ({ location, setLocation }) => {
-  const locationUpdateDistance = 2
-
   useEffect(() => {
     const watchId = navigator.geolocation.watchPosition(
       (position) => {
         const current = latLng(position.coords.latitude, position.coords.longitude)
-        if (current && current.distanceTo(location) > locationUpdateDistance) {
+        if (current && current.distanceTo(location) > defaults.locationUpdateDistance) {
           setLocation(current);
         }
       },

@@ -10,7 +10,7 @@ const Row = (props) => (
 export const RegisterRider = ({ setRider }) => {
   const handleFake = () => {
     setRider({
-      id: 123,
+      id: 3,
       name: "Kiel",
     });
   };

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { locationList } from "data/mapLocations";
 import { latLng } from "leaflet";
-import { defaults } from "defaults";
+import { defaults } from "data/defaults";
 
 export const LocationTracker = ({ location, visited, setVisited }) => {
   useEffect(() => {
