@@ -7,13 +7,13 @@ export const App = () => {
   const [rider, setRider] = useLocalStorage("rider", riderSchema);
 
   return (
-    <>
+    <div>
       {rider ? (
         <Rider rider={rider} setRider={setRider} />
       ) : (
         <RegisterRider setRider={setRider} />
       )}
-    </>
+    </div>
   );
 };
 export default App;

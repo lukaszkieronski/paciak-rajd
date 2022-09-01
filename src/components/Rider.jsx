@@ -23,11 +23,13 @@ export const Rider = ({ rider, setRider }) => {
     }
   )
 
-  const [visited, setVisited] = useLocalStorage("visited", true, []);
+  const [visited, setVisited] = useLocalStorage("visited", true, {});
+  const [answers, setAnswers] = useLocalStorage("answers", true, {});
+
 
   const elementProps = useMemo(() => {
-    return { rider, setRider, location, visited, settings, setSettings };
-  }, [rider, setRider, location, visited, settings, setSettings]);
+    return { rider, setRider, location, visited, setVisited, settings, setSettings, answers, setAnswers };
+  }, [rider, setRider, location, visited, setVisited, settings, setSettings]);
 
   const generateRoutes = (item, index) => {
     const element = React.createElement(item.element, elementProps);
