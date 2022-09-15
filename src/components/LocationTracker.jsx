@@ -7,6 +7,7 @@ export const LocationTracker = ({ location, visited, setVisited }) => {
   useEffect(() => {
     const current = latLng(location);
     for (const location of locationList) {
+      if (location.type === 4) continue;
       if (location.id in visited) continue;
       const distance = current.distanceTo(location);
       if (distance < defaults.locationCircleRadius) {

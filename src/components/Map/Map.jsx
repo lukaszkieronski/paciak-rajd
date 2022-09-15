@@ -17,6 +17,12 @@ export const Map = ({ location, visited }) => {
 
   const [follow, setFollow] = useState(true);
 
+  const getMarkerColorByType = (type) => {
+    if (type == 2) return 'red'
+    if (type == 3) return 'green'
+    if (type == 4) return 'blue'
+  }
+
   useEffect(() => {
     _map.current = map("map").setView(mapLocations.Rueda, 17);
     tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -33,11 +39,12 @@ export const Map = ({ location, visited }) => {
 
     for (const pos of locationList) {
       _markers.current[pos.id] = circle(pos, {
-        color: 'red',
-        fillColor: '#f03',
+        color: getMarkerColorByType(pos.type),
+        fillColor: getMarkerColorByType(pos.type),
         fillOpacity: 0.5,
+        weight: 10,
         radius: defaults.locationCircleRadius
-      }).addTo(_map.current);
+      }).bindTooltip(pos.name).addTo(_map.current);
     }
 
     _map.current.on('dragstart', () => {
