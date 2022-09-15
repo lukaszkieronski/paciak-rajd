@@ -22,7 +22,7 @@ export const Places = ({ visited, location, settings }) => {
 
   let visitedList = useMemo(() => {
     return locationList.filter((place) => {
-      return place.id in visited;
+      return place.id in visited && place.type !== 4;
     });
   }, [visited]);
 
@@ -130,7 +130,13 @@ export const Places = ({ visited, location, settings }) => {
               <CardHeader title="Punkty odwiedzone" />
               <CardContent>
                 {visitedList.map((location) => (
-                  <ListItem key={location.id} >
+                  <ListItem key={location.id} secondaryAction={
+                    <Link href={getNavigationLink(location)} >
+                      <IconButton edge="end" >
+                        <MyLocationIcon />
+                      </IconButton>
+                    </Link>
+                  }>
                     <ListItemAvatar>
                       <Avatar sx={{ color: theme.palette.background.paper, width: 32, height: 32 }}>{location.id}</Avatar>
                     </ListItemAvatar>
