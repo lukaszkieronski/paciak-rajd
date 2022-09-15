@@ -12,6 +12,7 @@ export const RegisterRider = ({ setRider }) => {
     setRider({
       id: 3,
       name: "Kiel",
+      code: 'paciak2022'
     });
   };
 

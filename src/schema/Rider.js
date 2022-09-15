@@ -3,7 +3,8 @@ export const riderSchema = {
   properties: {
     id: { type: "integer" },
     name: { type: "string" },
+    code: { type: "string" }
   },
-  required: ["id", "name"],
+  required: ["id", "name", "code"],
   additionalProperties: false,
 };
