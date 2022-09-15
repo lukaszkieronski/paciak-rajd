@@ -94,8 +94,8 @@ export const Info = ({ rider, setRider, settings, setSettings, visited, setVisit
       <Stack direction="column" spacing={2} sx={{ p: 2 }}>
         <Card>
           <CardHeader
-            title={'Numer startowy: ' + rider.id}
-            subheader={rider.name}
+            subheader={'Numer startowy: ' + rider.id}
+            title={rider.name}
           />
           <CardContent>
             <Stack>
