@@ -9,15 +9,8 @@
       "request": "launch",
       "type": "msedge",
       "url": "http://localhost:3000",
-      "webRoot": "${workspaceFolder}"
-    },
-    {
-      "name": "Dev server",
-      "request": "launch",
-      "runtimeArgs": ["start"],
-      "runtimeExecutable": "npm",
-      "skipFiles": ["<node_internals>/**"],
-      "type": "node"
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "devServer"
     }
   ]
 }

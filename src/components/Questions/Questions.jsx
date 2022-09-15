@@ -1,5 +1,5 @@
 import { Stack, Card, CardHeader, CardContent, List, ListItem, ListItemText, ListItemButton } from "@mui/material";
-import { useMemo, useState, useRef } from "react";
+import { useMemo, useState } from "react";
 import { questionList } from 'data/questions'
 import { Question } from './Question'
 
@@ -13,17 +13,14 @@ export const Questions = ({ visited, answers, setAnswers }) => {
 
   const [questionId, setQuestionId] = useState(-1)
 
-  const timer = useRef(0)
-
   const handleOpen = (id) => {
-    timer.current = Date.now()
     setQuestionId(id)
-    setAnswers({ ...answers, [id]: { answer: 0, time: 0 } })
+    // setAnswers({ ...answers, [id]: { answer: 0, time: 0 } })
   }
 
   const handleClose = (answer) => {
-    const time = Date.now() - timer.current
-    setAnswers({ ...answers, [questionId]: { answer, time } })
+    if (answer !== 0)
+      setAnswers({ ...answers, [questionId]: { answer, time: Date.now() } })
     setQuestionId(-1)
   }
 
