@@ -121,25 +121,27 @@ export const Info = ({ rider, setRider, settings, setSettings, visited, setVisit
             </FormGroup>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader title="Test" />
-          <CardContent>
-            <Stack spacing={2}>
-              <Button size="small" onClick={reloadApp}>
-                Wczytaj ponownie
-              </Button>
-              <Button size="small" onClick={clearRiderData}>
-                Usuń kierowcę
-              </Button>
-              <Button size="small" onClick={clearAllData}>
-                Usuń wszystkie dane
-              </Button>
-              <Button size="small" onClick={visitAll}>
-                Odwiedź wszystkie lokacje
-              </Button>
-            </Stack>
-          </CardContent>
-        </Card>
+        {rider.id == 100 &&
+          <Card>
+            <CardHeader title="Test" />
+            <CardContent>
+              <Stack spacing={2}>
+                <Button size="small" onClick={reloadApp}>
+                  Wczytaj ponownie
+                </Button>
+                <Button size="small" onClick={clearRiderData}>
+                  Usuń kierowcę
+                </Button>
+                <Button size="small" onClick={clearAllData}>
+                  Usuń wszystkie dane
+                </Button>
+                <Button size="small" onClick={visitAll}>
+                  Odwiedź wszystkie lokacje
+                </Button>
+              </Stack>
+            </CardContent>
+          </Card>
+        }
       </Stack>
       <Snackbar open={snack} autoHideDuration={6000} onClose={closeSnack}>
         <Alert onClose={closeSnack} severity={snackData.current.severity} sx={{ width: '100%' }}>

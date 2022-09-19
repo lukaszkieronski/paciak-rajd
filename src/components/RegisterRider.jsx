@@ -10,7 +10,7 @@ const Row = (props) => (
 export const RegisterRider = ({ setRider }) => {
   const handleFake = () => {
     setRider({
-      id: 3,
+      id: 100,
       name: "Kiel",
       code: 'paciak2022'
     });
@@ -26,10 +26,12 @@ export const RegisterRider = ({ setRider }) => {
         <Row>
           <Typography variant="h5">Zeskanuj dane kierowcy</Typography>
         </Row>
+        {/*
         <Row>
           <Button onClick={handleFake}>Fake scan</Button>
           <Button onClick={handleReload}>Odśwież</Button>
         </Row>
+        */}
         <Row>
           <Grid item xs={12}>
             <QrScanner setResult={setRider} />
